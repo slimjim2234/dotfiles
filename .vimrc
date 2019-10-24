@@ -1,28 +1,31 @@
+
+" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.vim/plugged')
 
-" NerdTree
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
 
-" fzf
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+
+" Using a non-master branch
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+
+" you complete me
+Plug 'valloric/youcompleteme', { 'do': './install.py --rust-completer' }
+
+" Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-" syntastic
-Plug 'scrooloose/syntastic'
+" vim tmux stuff 
+Plug 'christoomey/vim-tmux-navigator'
 
-" YouCompleteMe rust
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --racer-completer' }
-
-" rust vim
-Plug 'rust-lang/rust.vim'
-
-" racer
-Plug 'racer-rust/vim-racer'
-
+" Initialize plugin system
 call plug#end()
 
 set nu
-set encoding=utf-8
-set sw=4
-set ts=4
+set shiftwidth=4
+set tabstop=4
 set expandtab
-set softtabstop=4
+colorscheme elflord
